@@ -1,13 +1,19 @@
 class Room
 
-  attr_reader :name, :guest, :song
+  attr_reader :name, :guests, :songs
 
-  def initialize(name, guest, songs) #need to make sure guests is FixNum and songs is array/hash
+  def initialize(name) #need to make sure guests is FixNum and songs is array/hash
     @name = name
-    @guest = guest
-    @song = song
+    @guests = []
+    @songs = []
 
   end
 
+  def add_song(song)
+    @songs << song
+  end
 
+  def check_in_guest(guest)
+    @guests << guest
+  end
 end
