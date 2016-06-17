@@ -13,6 +13,10 @@ class TestRoom < MiniTest::Test
     @room_3 = Room.new("Opera")
     @song1 = Song.new("Basket Case")
     @guest1 = Guest.new("Michael")
+    @guest2 = Guest.new("Matt")
+    @guest3 = Guest.new("Lauren")
+    @guest4 = Guest.new("Coupar")
+    @guest15 = Guest.new("Rory")
     rooms = [@room_1, @room_2, @room_3] #may need to be outside the next end to work
   end
 
@@ -28,11 +32,16 @@ class TestRoom < MiniTest::Test
 
   def test_check_in_guest
     @room_1.check_in_guest(@guest1)
-    assert_equal(1, @room_1.guests.count)
+    @room_1.check_in_guest(@guest2)
+    @room_1.check_in_guest(@guest3)
+    @room_1.check_in_guest(@guest4)
+    @room_1.check_in_guest(@guest5)
+    assert_equal(4, @room_1.guests.count)
   end
 
     def test_check_out_guest
-      @room_1.check_out_guest(@guest1)
+      @room_1.check_in_guest(@guest1)
+      @room_1.check_out_guest("Michael")
       assert_equal(0, @room_1.guests.count)
     end
 end

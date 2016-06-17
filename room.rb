@@ -14,10 +14,14 @@ class Room
   end
 
   def check_in_guest(guest)
-    @guests << guest
+    if @guests.length < 4
+      @guests << guest
+    else
+    print "Too many singers"
+    end
   end
 
   def check_out_guest(guest)
-       @guests.delete_if {|guest| guest.name == guest}
+       @guests.delete_if {|x| x.name == guest}
      end
 end
