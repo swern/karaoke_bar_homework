@@ -7,13 +7,15 @@ class TestRoom < MiniTest::Test
 
   def setup
 
-    Room_1 = Room.new("Rock", 2, ["Run to the Hills", "American Idiot"])
-    Room_2 = Room.new("Rap", 3, ["Rap God", "Fuck Tha Police"])
-    Room_3 = Room.new("Opera", 4, ["Rigoletto", "The Magic Flute"])
+    @room_1 = Room.new("Rock", 2, ["Run to the Hills", "American Idiot"])
+    @room_2 = Room.new("Rap", 3, ["Rap God", "Fuck Tha Police"])
+    @room_3 = Room.new("Opera", 4, ["Rigoletto", "The Magic Flute"])
 
   end
 
-
+  def test_number_of_guests_in_room
+    assert_equal(3, @room_2.guest)
+  end
 
 
 end
