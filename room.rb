@@ -16,4 +16,8 @@ class Room
   def check_in_guest(guest)
     @guests << guest
   end
+
+  def check_out_guest(guest)
+       @guests.delete_if {|guest| guest.name == guest}
+     end
 end
